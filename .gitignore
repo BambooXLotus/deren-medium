@@ -2,9 +2,13 @@
 
 # dependencies
 /node_modules
-/sanity/node_modules
 /.pnp
 .pnp.js
+
+#sanity
+/sanity/node_modules
+/sanity/dist
+/sanity/yarn.lock
 
 # testing
 /coverage
