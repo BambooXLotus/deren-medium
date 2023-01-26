@@ -1,5 +1,7 @@
+import { groq } from "next-sanity";
+
 export const getPostbySlug =
-  `*[_type == "post" && slug.current == $slug][0] {
+  groq`*[_type == "post" && slug.current == $slug][0] {
   _id,
   _createdAt,
   title,
@@ -10,7 +12,7 @@ export const getPostbySlug =
 'comments': *[
   _type == 'comment' &&
   post._ref == ^._id &&
-  approved == true],
+approved == true],
 description,
 mainImage,
 slug,
