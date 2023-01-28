@@ -4,7 +4,11 @@ import React from 'react'
 import { urlFor } from '../sanity'
 import { Post } from '../typings'
 
-const Posts = ({ posts }: { posts: Post[] }) => {
+type PostProps = {
+  posts: Post[]
+}
+
+const Posts = ({ posts }: PostProps) => {
   return (
     <div className="grid grid-cols-1 gap-3 p-2 sm:grid-cols-2 md:gap-6 md:p-6 lg:grid-cols-3">
       {posts.map((post) => (
@@ -13,7 +17,7 @@ const Posts = ({ posts }: { posts: Post[] }) => {
             <img
               className="h-60 w-full object-cover transition-transform duration-200 ease-in-out group-hover:scale-105"
               src={urlFor(post.mainImage).url()!}
-              alt=""
+              alt={post.author.name}
             />
             <div className="flex justify-between bg-white p-5">
               <div>

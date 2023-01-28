@@ -9,14 +9,14 @@ import { getPostbySlug } from '../../queries/queries'
 import { sanityClient, urlFor } from '../../sanity'
 import { Post } from '../../typings'
 
-interface ICommentForm {
+type CommentFormProps = {
   _id: string
   name: string
   email: string
   comment: string
 }
 
-interface PostPageProps {
+type PostPageProps = {
   post: Post
 }
 
@@ -27,9 +27,9 @@ const PostPage: NextPage<PostPageProps> = ({ post }: PostPageProps) => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ICommentForm>()
+  } = useForm<CommentFormProps>()
 
-  const onSubmit: SubmitHandler<ICommentForm> = (data) => {
+  const onSubmit: SubmitHandler<CommentFormProps> = (data) => {
     fetch('/api/comments', {
       method: 'POST',
       body: JSON.stringify(data),

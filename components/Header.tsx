@@ -10,7 +10,7 @@ const Header = () => {
           <img
             className="w-44 cursor-pointer object-contain"
             src={logo.src}
-            alt=""
+            alt="Deren Medium"
           />
         </Link>
         <div className="hidden items-center space-x-5 md:inline-flex">
